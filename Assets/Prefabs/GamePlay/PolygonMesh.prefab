@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4974235663251438}
   - component: {fileID: 33103673477949044}
   - component: {fileID: 23556097022412926}
-  - component: {fileID: 60471214473034988}
   - component: {fileID: 120372169643952980}
-  - component: {fileID: 114905438674491712}
+  - component: {fileID: 60486665970262520}
+  - component: {fileID: 114948030105395364}
   m_Layer: 0
   m_Name: PolygonMesh
   m_TagString: Untagged
@@ -37,7 +37,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1320369873029510}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -59,7 +59,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,7 +86,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1320369873029510}
   m_Mesh: {fileID: 0}
---- !u!60 &60471214473034988
+--- !u!60 &60486665970262520
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -110,11 +110,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 3.5724912, y: 1.98129}
-      - {x: 2.4194512, y: 2.6156483}
-      - {x: 1.7406465, y: 1.4854778}
-      - {x: 2.8783488, y: 0.8502516}
---- !u!114 &114905438674491712
+    - - {x: 2.6565688, y: 2.6488724}
+      - {x: 1.7854748, y: 2.0159855}
+      - {x: 2.1182032, y: 0.9919532}
+      - {x: 3.1949344, y: 0.99195325}
+      - {x: 3.5276628, y: 2.0159857}
+--- !u!114 &114948030105395364
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -127,13 +128,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interior: 1
   outline: 2
-  polygonCollider2D: {fileID: 60471214473034988}
+  polygonCollider2D: {fileID: 60486665970262520}
   meshFilter: {fileID: 33103673477949044}
   meshRenderer: {fileID: 23556097022412926}
   lineRenderer: {fileID: 120372169643952980}
   isWorldSpaceUV: 0
   isOutlineClosed: 1
-  BaseColor: {r: 0, g: 1, b: 0.979579, a: 0.6431373}
+  BaseColor: {r: 0.6, g: 0.4, b: 0.6, a: 0.6509804}
 --- !u!120 &120372169643952980
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -149,7 +150,7 @@ LineRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -170,11 +171,12 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 3.5724912, y: 1.98129, z: 0}
-  - {x: 2.4194512, y: 2.6156483, z: 0}
-  - {x: 1.7406465, y: 1.4854778, z: 0}
-  - {x: 2.8783488, y: 0.8502516, z: 0}
-  - {x: 3.5724912, y: 1.98129, z: 0}
+  - {x: 2.6565688, y: 2.6488724, z: 0}
+  - {x: 1.7854748, y: 2.0159855, z: 0}
+  - {x: 2.1182032, y: 0.9919532, z: 0}
+  - {x: 3.1949344, y: 0.99195325, z: 0}
+  - {x: 3.5276628, y: 2.0159857, z: 0}
+  - {x: 2.6565688, y: 2.6488724, z: 0}
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 0.1
@@ -195,8 +197,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0, g: 1, b: 0.98039216, a: 1}
-      key1: {r: 0, g: 1, b: 0.98039216, a: 1}
+      key0: {r: 0.6, g: 0.4, b: 0.6, a: 1}
+      key1: {r: 0.6, g: 0.4, b: 0.6, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -227,5 +229,5 @@ LineRenderer:
     alignment: 0
     textureMode: 0
     generateLightingData: 0
-  m_UseWorldSpace: 1
+  m_UseWorldSpace: 0
   m_Loop: 1
