@@ -7,6 +7,27 @@ public class SecondaryColorSource : ColorSource
     public ColorSource Parent1;
     public ColorSource Parent2;
 
+    private new void Update()
+    {
+        base.Update();
+
+        LerpOnParents(0.5F);
+    }
+
+    public void LerpOnParents(float t)
+    {
+        Position = Vector3.Lerp(Parent1.Position, Parent2.Position, t);
+
+        float intensity = Intensity = Parent1.EvaluateIntensityAt(Position) + Parent2.EvaluateIntensityAt(Position);
+
+        IsEmitting = true;
+
+        Color = Parent1.Color + Parent2.Color;
+        Color.a = Mathf.Lerp(Parent1.Color.a, Parent2.Color.a, t);
+
+        Radius = Mathf.Lerp(Parent1.Radius, Parent2.Radius, t);
+    }
+
     public static SecondaryColorSource LerpInstantiate(ColorSource parent1, ColorSource parent2, float t, Transform parentTransform)
     {
         SecondaryColorSource lerpedColorSource = Instantiate(Resources.Load<SecondaryColorSource>("Secondary Color Source Template"), parentTransform);
@@ -14,19 +35,7 @@ public class SecondaryColorSource : ColorSource
         lerpedColorSource.Parent1 = parent1;
         lerpedColorSource.Parent2 = parent2;
 
-        lerpedColorSource.Position = Vector3.Lerp(parent1.Position, parent2.Position, t);
-
-        float intensity = 0F;
-        intensity += parent1.Intensity * Mathf.Max(0F, (1F - Vector3.Distance(lerpedColorSource.Position, parent1.Position) / parent1.Radius));
-        intensity += parent2.Intensity * Mathf.Max(0F, (1F - Vector3.Distance(lerpedColorSource.Position, parent2.Position) / parent2.Radius));
-        lerpedColorSource.Intensity = intensity;
-
-        lerpedColorSource.IsEmitting = true;
-
-        lerpedColorSource.Color = parent1.Color + parent2.Color;
-        lerpedColorSource.Color.a = Mathf.Lerp(parent1.Color.a, parent2.Color.a, t);
-
-        lerpedColorSource.Radius = Mathf.Lerp(parent1.Radius, parent2.Radius, t);
+        lerpedColorSource.LerpOnParents(t);
 
         return lerpedColorSource;
     }

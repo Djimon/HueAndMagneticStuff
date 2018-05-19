@@ -15,7 +15,7 @@ public static class ColorHelper
         else if (color == Color.magenta) return "magenta";
         else if (color == Color.red) return "red";
         else if (color == Color.white) return "white";
-        else if (color == Color.yellow) return "yellow";
+        else if (color == new Color(1F, 1F, 0F, 1F)) return "yellow";
         else return "";
     }
 }
