@@ -14,6 +14,8 @@ public class ColorSource : MonoBehaviour
 
     public float Radius = 10F;
 
+    ColorSourceManager ColorSourceManager;
+
     protected void Update()
     {
         
@@ -21,7 +23,13 @@ public class ColorSource : MonoBehaviour
 
     private void OnEnable()
     {
-        FindObjectOfType<ColorSourceManager>().RegisterColorSource(this);
+        ColorSourceManager = FindObjectOfType<ColorSourceManager>();
+        ColorSourceManager.RegisterColorSource(this);
+    }
+
+    private void OnDisable()
+    {
+        ColorSourceManager.UnregisterColorSource(this);
     }
 
     private void OnDrawGizmos()
