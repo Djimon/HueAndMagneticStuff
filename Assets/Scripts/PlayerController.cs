@@ -31,6 +31,11 @@ public class PlayerController : MonoBehaviour {
         PlayerMove();	
 	}
 
+    public void Move(Vector2 movement)
+    {
+        body.velocity += new Vector2(movement.x * 7.95f * playerSpeed, movement.y);
+    }
+
     void PlayerMove()
     {
         //Controls
