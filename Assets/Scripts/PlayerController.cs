@@ -10,8 +10,13 @@ public class PlayerController : MonoBehaviour {
     public int JumpForce=1250;
     public bool facingRight = true;
     float moveX;
-    
+    Rigidbody2D body;
+    bool isGrounded = true;
 
+    void Awake()
+    {
+        body = gameObject.GetComponent<Rigidbody2D>();
+    }
 	// Use this for initialization
 	void Start ()
     {
@@ -27,25 +32,43 @@ public class PlayerController : MonoBehaviour {
     void PlayerMove()
     {
         //Controls
-        moveX = Input.GetAxis("horizontal");
+        moveX = Input.GetAxis("Horizontal");
+        if (Input.GetButtonDown("Jump"))
+        {
+            Jump();
+            Debug.Log("JUMP!!");
+        }
+            
         //Direction
         if (moveX < 0.0f && facingRight == false)
             FlipPlayer();
         else if (moveX > 0.0f && facingRight==true)
             FlipPlayer();
         //Physics
-        //gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed,gameObject.GetComponent<Rigidbody2D>().velocity.y);
+        body.velocity = new Vector2(moveX * playerSpeed,body.velocity.y);
         //Animation
     }
 
     void Jump()
     {
-
+        if (isGrounded)
+        {
+            body.AddForce(Vector2.up * JumpForce);
+            isGrounded = false;
+        }        
     }
 
     void FlipPlayer()
     {
         //Change direction
+        Debug.Log("Flip....");
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        Debug.Log("Grounded");
+        if (col.gameObject.tag == "ground")
+            isGrounded = true;
     }
 
 }
