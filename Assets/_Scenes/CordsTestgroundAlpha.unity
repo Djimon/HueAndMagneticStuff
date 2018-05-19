@@ -145,9 +145,10 @@ MonoBehaviour:
   AlignVectors:
   - Color: {r: 1, g: 0, b: 0, a: 1}
     Vector: {x: 0, y: 1}
-  - Color: {r: 0, g: 0, b: 1, a: 1}
+  - Color: {r: 0, g: 1, b: 1, a: 1}
     Vector: {x: 0, y: 1}
   rotationSpeed: 0.1
+  spriteRenderer: {fileID: 0}
 --- !u!61 &135793173
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -411,7 +412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Intensity: 1
   IsEmitting: 1
-  Color: {r: 0, g: 0, b: 1, a: 1}
+  Color: {r: 0, g: 1, b: 1, a: 1}
   Radius: 10
 --- !u!1 &1278035033
 GameObject:
