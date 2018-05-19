@@ -5,7 +5,10 @@ using UnityEngine;
 public class BoundMap : MonoBehaviour {
 
     public float lineWidth = 0.1f;
-    public float foreGroundThreshold = -5.0f;
+    public float foreGroundThreshold = -10.0f;
+
+    public GameObject switchIcon;
+    public GameObject sourceIcon;
 
     private Switch[] switches;
 	// Use this for initialization
@@ -32,6 +35,19 @@ public class BoundMap : MonoBehaviour {
             lineRenderAtSwitch.material = Resources.Load<Material>("Materials/Line");
             lineRenderAtSwitch.material.color = target.Color;
             lineRenderAtSwitch.enabled = false;
+
+            //TODO: Draw Icons for Switches and lights
+            GameObject iconSwitch = Instantiate(switchIcon,switches[i].transform);
+            iconSwitch.GetComponent<SpriteRenderer>().color = target.Color;
+            iconSwitch.tag = "icon";
+            iconSwitch.transform.position = new Vector3(pos1.x, pos1.y, foreGroundThreshold);
+            iconSwitch.transform.position = new Vector3(iconSwitch.transform.position.x, iconSwitch.transform.position.y, foreGroundThreshold);
+            iconSwitch.SetActive(false);
+            GameObject iconSource = Instantiate(sourceIcon,switches[i].transform);
+            iconSource.GetComponent<SpriteRenderer>().color = target.Color;
+            iconSource.tag = "icon";
+            iconSource.transform.position = new Vector3(pos2.x,pos2.y, foreGroundThreshold);
+            iconSource.SetActive(false);
         }
 	}
 	

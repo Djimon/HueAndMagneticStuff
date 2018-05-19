@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour {
     Rigidbody2D body;
     bool isGrounded = true;
 
+    bool setMap = false;
+
     void Awake()
     {
         body = gameObject.GetComponent<Rigidbody2D>();
@@ -41,13 +43,15 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetButtonDown("Activate"))
             Debug.Log("Pressed F");
 
+        ShowMap();
+
         //Direction
         if (moveX < 0.0f && facingRight == false)
             FlipPlayer();
-        else if (moveX > 0.0f && facingRight==true)
+        else if (moveX > 0.0f && facingRight == true)
             FlipPlayer();
         //Physics
-        body.velocity = new Vector2(moveX * playerSpeed,body.velocity.y);
+        body.velocity = new Vector2(moveX * playerSpeed, body.velocity.y);
         //Animation
     }
 
@@ -71,6 +75,27 @@ public class PlayerController : MonoBehaviour {
         Debug.Log("Grounded");
         if (col.gameObject.tag == "ground")
             isGrounded = true;
+    }
+
+    void ShowMap()
+    {
+        bool ispressed = false;
+        //just for testing, will be cutted out later, should be replaced by a interactable object in the world
+        if (!setMap && Input.GetKeyDown(KeyCode.M) && !ispressed)
+        {
+            ispressed = true;
+            setMap = true;
+            EventManager.TriggerEvent("activateMap");
+        }
+        else if (setMap && Input.GetKeyDown(KeyCode.M) && !ispressed)
+        {
+            ispressed = true;
+            setMap = false;
+            EventManager.TriggerEvent("deactivateMap");
+        }
+
+        if (Input.GetKeyUp(KeyCode.M))
+            ispressed = false;
     }
 
 }

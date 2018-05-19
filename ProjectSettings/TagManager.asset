@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ground
   - hasWeight
+  - icon
   layers:
   - Default
   - TransparentFX
@@ -27,8 +28,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Lines
+  - Icons
   - 
   - 
   - 
