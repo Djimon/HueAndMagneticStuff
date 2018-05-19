@@ -17,9 +17,12 @@ public class ColorAligner : MonoBehaviour
 
     public float rotationSpeed = 0.01F;
 
+    public SpriteRenderer spriteRenderer;
+
     private void Start()
     {
         ColorSourceManager = FindObjectOfType<ColorSourceManager>();
+        DrawSprite();
     }
 
     private void Update()
@@ -44,7 +47,6 @@ public class ColorAligner : MonoBehaviour
             }
         }
 
-        Debug.Log(summedIntensityWeight);
         transform.Rotate(Vector3.forward, targetRotationAngle * rotationSpeed);
     }
 
@@ -59,4 +61,12 @@ public class ColorAligner : MonoBehaviour
 
         return result;
     }
+
+    void DrawSprite()
+    {
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        spriteRenderer.material.color = Color.white;
+        spriteRenderer.color = Color.white;
+    }
+
 }
