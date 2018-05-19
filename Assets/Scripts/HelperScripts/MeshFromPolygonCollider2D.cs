@@ -91,7 +91,7 @@ public class MeshFromPolygonCollider2D : MonoBehaviour
         mesh.uv = uv;
         mesh.triangles = triangles;
         meshFilter.mesh = mesh;
-        meshRenderer.sharedMaterial.color = BaseColor;
+        meshRenderer.material.color = BaseColor;
     }
 
     void CreateLine()
