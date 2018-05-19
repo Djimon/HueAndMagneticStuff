@@ -69,4 +69,16 @@ public class ColorAligner : MonoBehaviour
         spriteRenderer.color = Color.white;
     }
 
+    private void OnDrawGizmos()
+    {
+        Color tmp = Gizmos.color;
+
+        foreach(ColorVector2 alignmentVector in AlignVectors)
+        {
+            Gizmos.color = alignmentVector.Color;
+            Gizmos.DrawLine(transform.position, transform.position + (transform.TransformVector(alignmentVector.Vector)).normalized);
+        }
+
+        Gizmos.color = tmp;
+    }
 }
