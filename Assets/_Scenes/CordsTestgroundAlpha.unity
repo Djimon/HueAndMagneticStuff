@@ -144,9 +144,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AlignVectors:
   - Color: {r: 1, g: 0, b: 0, a: 1}
-    Vector: {x: 0, y: 1}
+    Vector: {x: 0.11915755, y: 0.99287534}
   - Color: {r: 0, g: 1, b: 1, a: 1}
-    Vector: {x: 0, y: 1}
+    Vector: {x: -0.54551125, y: -0.83810353}
   rotationSpeed: 0.1
   spriteRenderer: {fileID: 0}
 --- !u!61 &135793173
@@ -226,7 +226,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 135793171}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.5583787, y: 0, z: 0}
+  m_LocalPosition: {x: 2.99, y: 0.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

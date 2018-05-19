@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class ColorAligner : MonoBehaviour
 {
@@ -48,6 +49,7 @@ public class ColorAligner : MonoBehaviour
         }
 
         transform.Rotate(Vector3.forward, targetRotationAngle * rotationSpeed);
+        
     }
 
     private static Vector2 EvaluateColorSourcesAt(Vector2 position, List<ColorSource> colorSources)
@@ -80,5 +82,28 @@ public class ColorAligner : MonoBehaviour
         }
 
         Gizmos.color = tmp;
+
+
+        
+    }
+
+    //// Editor script
+    //private void OnSceneGUI()
+    //{
+    //    Debug.Log("raiunedtrainedtrunietrainet");
+    //    UnityEditor.Handles.DoPositionHandle(this.transform.position, this.transform.rotation);
+    //    UnityEditor.Handles.RadiusHandle(Quaternion.identity, transform.position, 1.0f, false);
+    //    Debug.Log("nudtriane");
+    //}
+
+    public void OnSceneGUI()
+    {
+        
+            if (Handles.Button(transform.position, Quaternion.identity, 0.25f, 0.25f, new Handles.CapFunction((i, v, q, f, e) => Debug.Log("unidrea") )))
+            {
+                transform.position = Handles.PositionHandle(transform.position, Quaternion.identity);
+            
+           }
+        
     }
 }
