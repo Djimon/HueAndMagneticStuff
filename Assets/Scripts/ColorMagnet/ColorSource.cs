@@ -28,4 +28,9 @@ public class ColorSource : MonoBehaviour
         
         Gizmos.color = tmp;
     }
+
+    public void ToggleEmittor()
+    {
+        IsEmitting = !IsEmitting;
+    }
 }

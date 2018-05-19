@@ -38,7 +38,9 @@ public class PlayerController : MonoBehaviour {
             Jump();
             Debug.Log("JUMP!!");
         }
-            
+        if (Input.GetButtonDown("Activate"))
+            Debug.Log("Pressed F");
+
         //Direction
         if (moveX < 0.0f && facingRight == false)
             FlipPlayer();
