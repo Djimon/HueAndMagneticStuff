@@ -5,17 +5,27 @@ using UnityEngine;
 
 public class ToggleSwitch : Switch {
 
-	// Use this for initialization
-	void Start ()
+    public float Switchoffset = 5f;
+    private bool isSwitched = false;
+    // Use this for initialization
+    void Start ()
     {
 		
 	}
-	
+
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
     {
-        if (isON){ /*set sprite on-state*/ }
-        else {  /*set sprite off-state*/  }
+        
+
+        if (isON && !isSwitched)
+        { /*set sprite on-state*/
+            isSwitched = true;
+        }
+        else if (!isON && isSwitched)
+        {  /*set sprite off-state*/
+            isSwitched = false;
+        }
 
         // Layer 8: Player
         if (inRange && Input.GetButtonDown("Activate"))
@@ -24,6 +34,7 @@ public class ToggleSwitch : Switch {
 
     public void Activate()
     {
+        Debug.Log("activate...");
         ToggleSwitch();
     }
 
