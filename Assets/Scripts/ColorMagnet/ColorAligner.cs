@@ -33,14 +33,18 @@ public class ColorAligner : MonoBehaviour
             List<ColorSource> colorSources = new List<ColorSource>(ColorSourceManager.GetColorSources(alignVector.Color));
 
             Vector2 evaluatedVectorForCurrentColor = EvaluateColorSourcesAt(transform.position, colorSources);
-            float rotationAngleForCurrentColor = Vector2.SignedAngle(transform.TransformVector(alignVector.Vector) , evaluatedVectorForCurrentColor);
+            float rotationAngleForCurrentColor = Vector2.SignedAngle(transform.TransformVector(alignVector.Vector), evaluatedVectorForCurrentColor);
             float intensityForCurrentColor = evaluatedVectorForCurrentColor.magnitude;
 
-            summedIntensityWeight += intensityForCurrentColor;
+            if (intensityForCurrentColor > float.Epsilon)
+            {
+                summedIntensityWeight += intensityForCurrentColor;
 
-            targetRotationAngle = Mathf.Lerp(targetRotationAngle, rotationAngleForCurrentColor, intensityForCurrentColor / summedIntensityWeight);
+                targetRotationAngle = Mathf.Lerp(targetRotationAngle, rotationAngleForCurrentColor, intensityForCurrentColor / summedIntensityWeight);
+            }
         }
 
+        Debug.Log(summedIntensityWeight);
         transform.Rotate(Vector3.forward, targetRotationAngle * rotationSpeed);
     }
 
