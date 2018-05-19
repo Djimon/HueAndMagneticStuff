@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour {
         else if (moveX > 0.0f && facingRight==true)
             FlipPlayer();
         //Physics
-        gameObject.getComponent<RigidBody2D>().velocity = new Vector2(moveX * playerSpeed,gameObject.getComponent);
+        //gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed,gameObject.GetComponent<Rigidbody2D>().velocity.y);
         //Animation
     }
 
