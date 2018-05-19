@@ -33,6 +33,8 @@ public abstract class Switch: MonoBehaviour {
         if (triggerOnTouch && col.gameObject.tag == "hasWeight")
         {
             isON = true;
+            target.ToggleEmittor();
+            isTargetSet = true;
         }
     }
 
@@ -41,12 +43,14 @@ public abstract class Switch: MonoBehaviour {
         if (triggerOnTouch && col.gameObject.tag == "hasWeight")
         {
             isON = false;
+            target.ToggleEmittor();
+            isTargetSet = false;
         }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        //Debug.Log("trigger enters");
+        Debug.Log("trigger enters");
         inRange = true;
 
     }
@@ -54,7 +58,7 @@ public abstract class Switch: MonoBehaviour {
     void OnTriggerExit2D(Collider2D other)
     {
         inRange = false;
-        //Debug.Log("leaved trigger");
+        Debug.Log("leaved trigger");
     }
 
 
