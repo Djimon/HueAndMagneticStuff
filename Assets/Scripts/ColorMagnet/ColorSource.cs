@@ -65,7 +65,6 @@ public class ColorSource : MonoBehaviour
 
     public float EvaluateIntensityAt(Vector2 position)
     {
-
         return IsEmitting ? Intensity * Mathf.Max(0F, (1F - Vector3.Distance(this.Position, position) / Radius)) : 0F;
     }
 }
