@@ -43,7 +43,6 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetButtonDown("Jump"))
         {
             Jump();
-            Debug.Log("JUMP!!");
         }
         if (Input.GetButtonDown("Activate"))
             Debug.Log("Pressed F");
@@ -66,6 +65,7 @@ public class PlayerController : MonoBehaviour {
         {
             body.AddForce(Vector2.up * JumpForce);
             isGrounded = false;
+            Debug.Log("JUMP!!");
         }        
     }
 
