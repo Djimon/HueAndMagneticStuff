@@ -13,6 +13,9 @@ public class ColorSpring : MonoBehaviour
     [Range(0F, 1F)]
     public float speed = 0.1F;
 
+    public bool FreezeX = false;
+    public bool FreezeY = false;
+
     public List<Color> Colors = new List<Color>() { Color.red };
 
     Vector2 previousTargetOffset = Vector2.zero;
@@ -63,6 +66,11 @@ public class ColorSpring : MonoBehaviour
         targetOffset = Vector2.ClampMagnitude(targetOffset, maxLength);
 
         targetOffset = Vector2.Lerp(previousTargetOffset, targetOffset, speed);
+
+        if (FreezeX)
+            targetOffset.x = 0;
+        if (FreezeY)
+            targetOffset.y = 0;
 
 
         foreach (Transform childTransform in GetComponentInChildren<Transform>())
