@@ -11,10 +11,14 @@ public class GameManager : MonoBehaviour {
     private PlayerController player;
     private Camera camera;
 
+    private Dictionary<Color,int> winCondition;
+
+
     void Awake()
     {
         EventManager.StartListening("activateMap", ActivateMap);
         EventManager.StartListening("deactivateMap", DeactivateMap);
+        winCondition = new Dictionary<Color, int>();  
     }
 
     // Use this for initialization
@@ -25,12 +29,54 @@ public class GameManager : MonoBehaviour {
         camera = FindObjectOfType<Camera>();
         if (player != null)
             Debug.Log("Player found");
+
+        InitializeShards();
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+    private void InitializeShards()
+    {
+        Shard[] shards = FindObjectsOfType<Shard>();
+        for (int i = 0; i < shards.Length; i++)
+        {
+            Color temp = shards[i].color;
+            if (winCondition.ContainsKey(temp))
+                winCondition[temp]++;
+            else
+                winCondition.Add(temp, 1);
+        }
+
+        foreach (Color c in winCondition.Keys)
+        {
+            Debug.Log(c.ToColorName() + " = " + winCondition[c]);
+        }
+    }
+
+    // Update is called once per frame
+    void Update ()
+    {
+        
 	}
+
+    public bool CheckWinCondition()
+    {
+        int rest = 0;
+        foreach (Color c in winCondition.Keys)
+        {
+            rest += winCondition[c];
+        }
+
+        if (rest <= 0)
+            return true;
+        else
+            return false;
+    }
+
+    public void ShardCollected(Color color)
+    {
+        Debug.Log("Shard collected: "+color.ToColorName());
+        winCondition[color]--;
+
+    }
 
     void ActivateMap()
     {

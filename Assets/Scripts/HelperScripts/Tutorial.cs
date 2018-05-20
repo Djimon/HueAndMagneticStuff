@@ -23,6 +23,7 @@ public class Tutorial : MonoBehaviour {
     {
         if (col.gameObject.layer == 8)
         {
+            Hinttext.text = "Press \"F\" to activate!";
             Hinttext.enabled = true;
         }
     }
@@ -31,6 +32,7 @@ public class Tutorial : MonoBehaviour {
     {
         if (col.gameObject.layer == 8)
         {
+            Hinttext.text = "";
             Hinttext.enabled = false;
         }
     }

@@ -23,7 +23,7 @@ namespace Gamekit2D
                 if (character != null)
                 {
                     character.Move(movement);
-                    Debug.LogWarning("Move player");
+                    //Debug.LogWarning("Move player");
                 }
                     
                 else
