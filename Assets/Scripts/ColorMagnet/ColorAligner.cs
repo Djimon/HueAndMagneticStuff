@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEditor;
+using UnityEditor;
 
 public class ColorAligner : MonoBehaviour
 {
@@ -16,6 +16,7 @@ public class ColorAligner : MonoBehaviour
 
     ColorSourceManager ColorSourceManager;
 
+    [Range(0F, 1F)]
     public float rotationSpeed = 0.01F;
 
     public SpriteRenderer spriteRenderer;
@@ -34,9 +35,7 @@ public class ColorAligner : MonoBehaviour
 
         foreach (ColorVector2 alignVector in AlignVectors)
         {
-            List<ColorSource> colorSources = new List<ColorSource>(ColorSourceManager.GetColorSources(alignVector.Color));
-
-            Vector2 evaluatedVectorForCurrentColor = EvaluateColorSourcesAt(transform.position, colorSources);
+            Vector2 evaluatedVectorForCurrentColor = ColorSourceManager.EvaluateColorSourcesAt(transform.position, alignVector.Color);
             float rotationAngleForCurrentColor = Vector2.SignedAngle(transform.TransformVector(alignVector.Vector), evaluatedVectorForCurrentColor);
             float intensityForCurrentColor = evaluatedVectorForCurrentColor.magnitude;
 
@@ -50,18 +49,6 @@ public class ColorAligner : MonoBehaviour
 
         transform.Rotate(Vector3.forward, targetRotationAngle * rotationSpeed);
         
-    }
-
-    private static Vector2 EvaluateColorSourcesAt(Vector2 position, List<ColorSource> colorSources)
-    {
-        Vector2 result = Vector2.zero;
-
-        foreach(ColorSource colorSource in colorSources)
-        {
-            result += (colorSource.Position - position).normalized * colorSource.EvaluateIntensityAt(position);
-        }
-
-        return result;
     }
 
     void DrawSprite()
@@ -82,29 +69,5 @@ public class ColorAligner : MonoBehaviour
         }
 
         Gizmos.color = tmp;
-
-
-        
     }
-
-    //// Editor script
-    //private void OnSceneGUI()
-    //{
-    //    Debug.Log("raiunedtrainedtrunietrainet");
-    //    UnityEditor.Handles.DoPositionHandle(this.transform.position, this.transform.rotation);
-    //    UnityEditor.Handles.RadiusHandle(Quaternion.identity, transform.position, 1.0f, false);
-    //    Debug.Log("nudtriane");
-    //}
-    /*
-    public void OnSceneGUI()
-    {
-        
-            if (Handles.Button(transform.position, Quaternion.identity, 0.25f, 0.25f, new Handles.CapFunction((i, v, q, f, e) => Debug.Log("unidrea") )))
-            {
-                transform.position = Handles.PositionHandle(transform.position, Quaternion.identity);
-            
-           }
-        
-    }
-    */
 }

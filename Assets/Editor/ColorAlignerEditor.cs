@@ -6,10 +6,6 @@ using UnityEngine;
 [CustomEditor(typeof(ColorAligner))]
 public class ColorAlignerEditor : Editor
 {
-
-    Vector3 pos = Vector3.zero;
-    Quaternion rot = Quaternion.identity;
-
     public void OnSceneGUI()
     {
         ColorAligner myTarget = (ColorAligner)target;
@@ -23,13 +19,13 @@ public class ColorAlignerEditor : Editor
 
             // Buttons Color Change
 
-            float buttonSize = HandleUtility.GetHandleSize(myTarget.transform.position) * 0.06f;
+            float buttonSize = HandleUtility.GetHandleSize(myTarget.transform.position) * 0.1f;
             float pickSize = buttonSize;
 
             // next Color
             Handles.color = cv.Color.NextColor();
 
-            if (Handles.Button(handlePos + Vector3.right * 0.1F, Quaternion.identity, buttonSize, buttonSize, Handles.CubeHandleCap))
+            if (Handles.Button(handlePos + Vector3.right * 0.05F, Quaternion.identity, buttonSize, pickSize, Handles.CubeHandleCap))
             {
                 cv.Color = cv.Color.NextColor();
             }
@@ -37,7 +33,7 @@ public class ColorAlignerEditor : Editor
             // previous Color
             Handles.color = cv.Color.PreviousColor();
 
-            if (Handles.Button(handlePos + Vector3.left * 0.1F, Quaternion.identity, buttonSize, buttonSize, Handles.CubeHandleCap))
+            if (Handles.Button(handlePos + Vector3.left * 0.05F, Quaternion.identity, buttonSize, pickSize, Handles.CubeHandleCap))
             {
                 cv.Color = cv.Color.PreviousColor();
             }

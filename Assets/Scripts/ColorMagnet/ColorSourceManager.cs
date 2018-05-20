@@ -52,4 +52,19 @@ public class ColorSourceManager : MonoBehaviour
 
         return result;
     }
+
+
+    public Vector2 EvaluateColorSourcesAt(Vector2 position, Color color)
+    {
+        Vector2 result = Vector2.zero;
+
+        List<ColorSource> colorSources = GetColorSources(color);
+
+        foreach (ColorSource colorSource in colorSources)
+        {
+            result += (colorSource.Position - position).normalized * colorSource.EvaluateIntensityAt(position);
+        }
+
+        return result;
+    }
 }
