@@ -5,11 +5,11 @@ using UnityEngine;
 public class ExitLevel : MonoBehaviour {
 
 
-    LevelManager levelManager;
+    public LevelManager levelManager;
     // Use this for initialization
     void Start ()
     {
-		
+        //levelManager = FindObjectOfType<LevelManager>().GetComponent<LevelManager>();
 	}
 	
 	// Update is called once per frame

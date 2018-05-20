@@ -39,6 +39,8 @@ public class ColorSource : MonoBehaviour
 
     protected void Update()
     {
+        if (gameObject.GetComponent<SecondaryColorSource>() == null)
+            Intensity = IsEmitting ? 1f : 0f;
 
         transform.localScale = Vector3.one * Radius;
         SpriteRendererReference.color = new Color(Color.r, Color.g, Color.b, Intensity);

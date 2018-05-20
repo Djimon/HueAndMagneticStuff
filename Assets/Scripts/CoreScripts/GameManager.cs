@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour {
 
     public GameObject mapBackground;
     private Switch[] switches;
-
+    private PlayerController player;
+    private Camera camera;
 
     void Awake()
     {
@@ -20,6 +21,10 @@ public class GameManager : MonoBehaviour {
     void Start ()
     {
         switches = FindObjectsOfType<Switch>();
+        player = FindObjectOfType<PlayerController>();
+        camera = FindObjectOfType<Camera>();
+        if (player != null)
+            Debug.Log("Player found");
     }
 	
 	// Update is called once per frame
@@ -27,13 +32,14 @@ public class GameManager : MonoBehaviour {
 		
 	}
 
-
-
     void ActivateMap()
     {
         Debug.Log("Map is activated");
         //show Linerenderer of each Switch
+        mapBackground.transform.position = player.transform.position;
         mapBackground.SetActive(true);
+        camera.orthographicSize += 2f;
+        player.SetMovable(false);
         foreach (Switch s in switches)
         {
             s.GetComponent<LineRenderer>().enabled = true;
@@ -52,6 +58,8 @@ public class GameManager : MonoBehaviour {
         Debug.Log("Map is deactivated");
         //show Linerenderer of each Switch
         mapBackground.SetActive(false);
+        camera.orthographicSize -= 2f;
+        player.SetMovable(true);
         foreach (Switch s in switches)
         {
             s.GetComponent<LineRenderer>().enabled = false;

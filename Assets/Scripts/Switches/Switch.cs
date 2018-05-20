@@ -30,34 +30,47 @@ public abstract class Switch: MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (triggerOnTouch && col.gameObject.tag == "hasWeight")
+
+    }
+
+    void OnCollisionExit2D(Collision2D col)
+    {
+        
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (triggerOnTouch && other.gameObject.tag == "hasWeight")
         {
             isON = true;
             target.ToggleEmittor();
             isTargetSet = true;
         }
-    }
-
-    void OnCollisionExit2D(Collision2D col)
-    {
-        if (triggerOnTouch && col.gameObject.tag == "hasWeight")
-        {
-            isON = false;
-            target.ToggleEmittor();
-            isTargetSet = false;
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
+        
         Debug.Log("trigger enters");
-        inRange = true;
+        if (other.gameObject.layer == 8)
+        {
+            Debug.Log("Player detected in range");
+            inRange = true;
+        }
 
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        inRange = false;
+        if (triggerOnTouch && other.gameObject.tag == "hasWeight")
+        {
+            isON = false;
+            target.ToggleEmittor();
+            isTargetSet = false;
+        }
+
+        if (other.gameObject.layer == 8)
+        {
+            Debug.Log("Player detected NOT in range");
+            inRange = false;
+        }
+            
         Debug.Log("leaved trigger");
     }
 
