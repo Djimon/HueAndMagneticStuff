@@ -12,6 +12,8 @@ public class SecondaryColorSource : ColorSource
         base.Update();
 
         LerpOnParents(0.5F);
+
+        transform.localScale = Vector3.one * 0.5F * Radius;
     }
 
     public void LerpOnParents(float t)

@@ -9,31 +9,31 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1284012304492462}
+  m_RootGameObject: {fileID: 1907830090994644}
   m_IsPrefabParent: 1
---- !u!1 &1284012304492462
+--- !u!1 &1907830090994644
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4060985583581548}
-  - component: {fileID: 212187411102286388}
-  - component: {fileID: 114785835602403292}
+  - component: {fileID: 4387043137983048}
+  - component: {fileID: 212909854680655896}
+  - component: {fileID: 114644700427947680}
   m_Layer: 0
-  m_Name: Secondary Color Source Template
+  m_Name: ColorSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4060985583581548
+--- !u!4 &4387043137983048
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1284012304492462}
+  m_GameObject: {fileID: 1907830090994644}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.05, y: -3.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -41,29 +41,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114785835602403292
+--- !u!114 &114644700427947680
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1284012304492462}
+  m_GameObject: {fileID: 1907830090994644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c5eb578e56e4b642a1732f5704d48c9, type: 3}
+  m_Script: {fileID: 11500000, guid: e4fb0adb2ec4037439a595b0d49542c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Intensity: 1
   IsEmitting: 1
-  Color: {r: 0.53285617, g: 0.06786222, b: 0.5754717, a: 1}
-  Radius: 10
-  Parent1: {fileID: 0}
-  Parent2: {fileID: 0}
---- !u!212 &212187411102286388
+  Color: {r: 0, g: 0, b: 1, a: 1}
+  Radius: 5
+--- !u!212 &212909854680655896
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1284012304492462}
+  m_GameObject: {fileID: 1907830090994644}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
