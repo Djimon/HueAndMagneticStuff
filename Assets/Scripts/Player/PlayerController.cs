@@ -67,6 +67,9 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetButtonDown("Activate"))
             Debug.Log("Pressed F");
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+
         if (movingActivated)
         {
             moveX = Input.GetAxis("Horizontal");
@@ -75,8 +78,6 @@ public class PlayerController : MonoBehaviour {
                 Jump();
             }
         }
-
-        
 
         ShowMap();
 

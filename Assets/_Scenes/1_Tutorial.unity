@@ -1716,6 +1716,16 @@ Prefab:
       propertyPath: AlignVectors.Array.data[1].Vector.x
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 114131008478973142, guid: 5d7cfc356f840ae488585aed62af532d,
+        type: 2}
+      propertyPath: AlignVectors.Array.data[0].Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114131008478973142, guid: 5d7cfc356f840ae488585aed62af532d,
+        type: 2}
+      propertyPath: AlignVectors.Array.data[0].Color.r
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5d7cfc356f840ae488585aed62af532d, type: 2}
   m_IsPrefabParent: 0
@@ -2477,6 +2487,25 @@ Prefab:
         type: 2}
       propertyPath: IsEmitting
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114944975486405030, guid: 32e99561dc45bde40becf5ecf5e0ec0f,
+        type: 2}
+      propertyPath: Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114944975486405030, guid: 32e99561dc45bde40becf5ecf5e0ec0f,
+        type: 2}
+      propertyPath: Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114944975486405030, guid: 32e99561dc45bde40becf5ecf5e0ec0f,
+        type: 2}
+      propertyPath: Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666743700293774, guid: 32e99561dc45bde40becf5ecf5e0ec0f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 32e99561dc45bde40becf5ecf5e0ec0f, type: 2}
