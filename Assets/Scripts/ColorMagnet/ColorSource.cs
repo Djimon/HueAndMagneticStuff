@@ -20,10 +20,14 @@ public class ColorSource : MonoBehaviour
 
     SpriteRenderer SpriteRendererReference;
 
+    ParticleSystem ParticleSystem;
+
     private void Start()
     {
         SpriteRendererReference = GetComponent<SpriteRenderer>();
         SpriteRendererReference.color = Color;
+
+        ParticleSystem = GetComponentInChildren<ParticleSystem>();
     }
 
     private void OnEnable()
@@ -40,10 +44,19 @@ public class ColorSource : MonoBehaviour
     protected void Update()
     {
         if (gameObject.GetComponent<SecondaryColorSource>() == null)
+        {
             Intensity = IsEmitting ? 1f : 0f;
+        }
 
+        // scale because texture needs to be scaled #hachyshit
         transform.localScale = Vector3.one * Radius;
-        SpriteRendererReference.color = new Color(Color.r, Color.g, Color.b, Intensity);
+
+        SpriteRendererReference.color = new Color(Color.r, Color.g, Color.b, IsEmitting ? Intensity : 0F);
+
+        if (ParticleSystem != null)
+        {
+            ParticleSystem.startColor = Color;
+        }
     }
 
     private void OnDrawGizmos()

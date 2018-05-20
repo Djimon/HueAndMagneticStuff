@@ -22,7 +22,7 @@ public class SecondaryColorSource : ColorSource
 
         float intensity = Intensity = Parent1.EvaluateIntensityAt(Position) + Parent2.EvaluateIntensityAt(Position);
 
-        IsEmitting = true;
+        IsEmitting = Parent1.IsEmitting && Parent2.IsEmitting;
 
         Color = Parent1.Color + Parent2.Color;
         Color.a = Mathf.Lerp(Parent1.Color.a, Parent2.Color.a, t);
