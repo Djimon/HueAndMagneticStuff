@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+//using UnityEditor;
 
 public class ColorAligner : MonoBehaviour
 {
@@ -95,7 +95,7 @@ public class ColorAligner : MonoBehaviour
     //    UnityEditor.Handles.RadiusHandle(Quaternion.identity, transform.position, 1.0f, false);
     //    Debug.Log("nudtriane");
     //}
-
+    /*
     public void OnSceneGUI()
     {
         
@@ -106,4 +106,5 @@ public class ColorAligner : MonoBehaviour
            }
         
     }
+    */
 }

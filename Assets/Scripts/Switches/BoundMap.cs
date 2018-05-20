@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BoundMap : MonoBehaviour {
@@ -10,11 +11,17 @@ public class BoundMap : MonoBehaviour {
     public GameObject switchIcon;
     public GameObject sourceIcon;
 
-    private Switch[] switches;
+    private Switch[] switches,switches1, switches2, switches3, switches4;
 	// Use this for initialization
 	void Start ()
     {
-        switches = FindObjectsOfType<Switch>();
+        switches1 = FindObjectsOfType<Switch>();
+        switches2 = FindObjectsOfType<ToggleSwitch>();
+        switches3 = FindObjectsOfType<TimedSwitch>();
+        switches4 = FindObjectsOfType<FlipFlop>();
+        switches = switches1.Concat(switches2.Concat(switches3.Concat(switches4).ToArray()).ToArray()).ToArray();
+        switches = switches.Distinct().ToArray();
+
 
         for (int i = 0; i < switches.Length; i++)
         {
