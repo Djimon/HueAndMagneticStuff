@@ -27,8 +27,6 @@ public class GameManager : MonoBehaviour {
 		
 	}
 
-
-
     void ActivateMap()
     {
         Debug.Log("Map is activated");

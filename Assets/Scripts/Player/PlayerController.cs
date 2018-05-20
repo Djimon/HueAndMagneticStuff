@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,8 +12,7 @@ public class PlayerController : MonoBehaviour {
     public bool facingRight = true;
     float moveX;
     Rigidbody2D body;
-    bool isGrounded = true;
-
+    public bool isGrounded = true;
     bool setMap = false;
 
     void Awake()
@@ -22,14 +22,23 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-		
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        PlayerMove();	
+        PlayerMove();
+        CapVelocity();
 	}
+
+    private void CapVelocity()
+    {
+        Vector2.ClampMagnitude(body.velocity, 1.1f *playerSpeed);
+        if (body.velocity.magnitude >= (1.1f * playerSpeed))
+        {
+            Debug.Log("too fast!!!");
+        }
+    }
 
     public void Move(Vector2 movement)
     {
@@ -79,7 +88,13 @@ public class PlayerController : MonoBehaviour {
     {
         Debug.Log("Grounded");
         if (col.gameObject.tag == "ground")
-            isGrounded = true;
+        {
+            Vector2 vec = col.gameObject.transform.position - gameObject.transform.position;
+            float angle = Mathf.Abs(Vector2.Angle(Vector2.down, vec));
+            Debug.Log(angle+" < 90 ? ->"+ (angle<89f?true:false));
+            isGrounded = angle < 89f ? true : false;
+        }
+            
     }
 
     void ShowMap()
