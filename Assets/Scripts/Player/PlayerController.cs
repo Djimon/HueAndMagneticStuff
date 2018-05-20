@@ -164,7 +164,7 @@ public class PlayerController : MonoBehaviour {
             Vector2 vec = col.gameObject.transform.position - gameObject.transform.position;
             float angle = Mathf.Abs(Vector2.Angle(Vector2.down, vec));
             //Debug.Log(angle+" < 90 ? ->"+ (angle<89f?true:false));
-            isGrounded = angle < 89f ? true : false;
+            isGrounded = angle < 90f ? true : false;
             Debug.Log("Grounded");
         }
             

@@ -7,6 +7,8 @@ using UnityEngine.Events;
 public class GameManager : MonoBehaviour {
 
     public GameObject mapBackground;
+    public float cameraZoomOnMap = 9.0f;
+
     private Switch[] switches;
     private PlayerController player;
     private Camera camera;
@@ -84,7 +86,7 @@ public class GameManager : MonoBehaviour {
         //show Linerenderer of each Switch
         mapBackground.transform.position = player.transform.position;
         mapBackground.SetActive(true);
-        camera.orthographicSize += 2f;
+        camera.orthographicSize += cameraZoomOnMap;
         player.SetMovable(false);
         foreach (Switch s in switches)
         {
@@ -104,7 +106,7 @@ public class GameManager : MonoBehaviour {
         Debug.Log("Map is deactivated");
         //show Linerenderer of each Switch
         mapBackground.SetActive(false);
-        camera.orthographicSize -= 2f;
+        camera.orthographicSize -= cameraZoomOnMap;
         player.SetMovable(true);
         foreach (Switch s in switches)
         {
