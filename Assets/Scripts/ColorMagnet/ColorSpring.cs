@@ -75,7 +75,7 @@ public class ColorSpring : MonoBehaviour
 
         foreach (Transform childTransform in GetComponentInChildren<Transform>())
         {
-            childTransform.localPosition = targetOffset;
+            childTransform.localPosition += (Vector3)(targetOffset - previousTargetOffset);
         }
 
         previousTargetOffset = targetOffset;
