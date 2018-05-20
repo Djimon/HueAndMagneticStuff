@@ -87,7 +87,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.64, y: 6.82}
+  m_Size: {x: 6.474846, y: 1.2194855}
   m_EdgeRadius: 0
 --- !u!114 &114449599817947680
 MonoBehaviour:
@@ -133,7 +133,7 @@ MonoBehaviour:
   isMovingAtStart: 1
   localNodes:
   - {x: 0, y: 0, z: 0}
-  - {x: 28.49, y: 0, z: 0}
+  - {x: 0.08375931, y: 14.850677, z: 0}
   waitTimes:
   - 0
   - 0
