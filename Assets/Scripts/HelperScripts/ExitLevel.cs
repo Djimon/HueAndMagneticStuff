@@ -10,6 +10,7 @@ public class ExitLevel : MonoBehaviour {
     public Text hintText;
     public LevelManager levelManager;
     public GameManager gameManager;
+
     // Use this for initialization
     void Start ()
     {

@@ -65,7 +65,14 @@ public class ColorAligner : MonoBehaviour
         foreach(ColorVector2 alignmentVector in AlignVectors)
         {
             Gizmos.color = alignmentVector.Color;
-            Gizmos.DrawLine(transform.position, transform.position + (transform.TransformVector(alignmentVector.Vector)).normalized);
+
+
+            Vector3 alignmentDirection = (transform.TransformVector(alignmentVector.Vector)).normalized;
+            Vector3 alignmentNormal = new Vector2(alignmentDirection.y, -alignmentDirection.x);
+
+            Gizmos.DrawLine(transform.position, transform.position + alignmentDirection);
+            Gizmos.DrawLine(transform.position + alignmentDirection, transform.position + 0.9F * alignmentDirection + 0.1F * alignmentNormal);
+            Gizmos.DrawLine(transform.position + alignmentDirection, transform.position + 0.9F * alignmentDirection - 0.1F * alignmentNormal);
         }
 
         Gizmos.color = tmp;
