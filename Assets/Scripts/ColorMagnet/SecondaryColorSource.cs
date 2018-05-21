@@ -19,13 +19,12 @@ public class SecondaryColorSource : ColorSource
     public void LerpOnParents(float t)
     {
         Position = Vector3.Lerp(Parent1.Position, Parent2.Position, t);
-
-        float intensity = Intensity = Parent1.EvaluateIntensityAt(Position) + Parent2.EvaluateIntensityAt(Position);
+        
+        Intensity = Parent1.EvaluateIntensityAt(Position) + Parent2.EvaluateIntensityAt(Position);
 
         IsEmitting = Parent1.IsEmitting && Parent2.IsEmitting;
-
-        Color = Parent1.Color + Parent2.Color;
-        Color.a = Mathf.Lerp(Parent1.Color.a, Parent2.Color.a, t);
+        
+        Color = new Color(Mathf.Min(Parent1.Color.r + Parent2.Color.r, 1F), Mathf.Min(Parent1.Color.g + Parent2.Color.g, 1F), Mathf.Min(Parent1.Color.b + Parent2.Color.b, 1F), Mathf.Lerp(Parent1.Color.a, Parent2.Color.a, t));
 
         Radius = Mathf.Lerp(Parent1.Radius, Parent2.Radius, t);
     }

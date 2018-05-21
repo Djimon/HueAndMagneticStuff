@@ -39,20 +39,21 @@ public class ColorSpring : MonoBehaviour
             {
                 float evaluatedIntensity = colorSource.EvaluateIntensityAt(transform.position);
 
+                summedIntensityWeight += evaluatedIntensity;
+
                 if (summedIntensityWeight == 0F)
                 {
                     targetOffset = colorSource.Position - (Vector2)transform.position;
                 }
                 else
                 {
-                    targetOffset = Vector2.Lerp(colorSource.Position - (Vector2)transform.position, targetOffset, evaluatedIntensity / summedIntensityWeight);
+                    targetOffset = Vector2.Lerp(targetOffset, colorSource.Position - (Vector2)transform.position, evaluatedIntensity / summedIntensityWeight);
                 }
-
-                summedIntensityWeight += evaluatedIntensity;
             }
         }
 
-        if(summedIntensityWeight == 0F)
+
+        if (summedIntensityWeight == 0F)
         {
             targetOffset = Vector2.zero;
         }

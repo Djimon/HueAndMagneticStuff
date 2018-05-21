@@ -701,11 +701,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4387043137983048, guid: 783d2df7c90af3341ae63284c48006ae, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.98
+      value: -7.02
       objectReference: {fileID: 0}
     - target: {fileID: 4387043137983048, guid: 783d2df7c90af3341ae63284c48006ae, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.04
+      value: -5.35
       objectReference: {fileID: 0}
     - target: {fileID: 4387043137983048, guid: 783d2df7c90af3341ae63284c48006ae, type: 2}
       propertyPath: m_LocalPosition.z
@@ -823,11 +823,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4387043137983048, guid: 783d2df7c90af3341ae63284c48006ae, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 8.07
+      value: 3.16
       objectReference: {fileID: 0}
     - target: {fileID: 4387043137983048, guid: 783d2df7c90af3341ae63284c48006ae, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.66
+      value: 7.15
       objectReference: {fileID: 0}
     - target: {fileID: 4387043137983048, guid: 783d2df7c90af3341ae63284c48006ae, type: 2}
       propertyPath: m_LocalPosition.z
@@ -886,8 +886,10 @@ MonoBehaviour:
   maxLength: 10
   stiffness: 0.5
   speed: 0.1
+  FreezeX: 0
+  FreezeY: 0
   Colors:
-  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 1, g: 0, b: 1, a: 1}
 --- !u!4 &1974431346
 Transform:
   m_ObjectHideFlags: 0
