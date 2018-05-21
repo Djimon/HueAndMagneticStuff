@@ -159,7 +159,7 @@ public class PlayerController : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "ground" || col.gameObject.tag == "hasWeight")
+        if (!isGrounded && (col.gameObject.tag == "ground" || col.gameObject.tag == "hasWeight"))
         {
             Vector2 vec = col.gameObject.transform.position - gameObject.transform.position;
             float angle = Mathf.Abs(Vector2.Angle(Vector2.down, vec));

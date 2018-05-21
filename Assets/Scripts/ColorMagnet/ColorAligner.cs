@@ -8,11 +8,11 @@ public class ColorAligner : MonoBehaviour
     [System.Serializable]
     public class ColorVector2
     {
-        public Color Color = Color.black;
-        public Vector2 Vector;
+        public Color Color = Color.red;
+        public Vector2 Vector = Vector2.up;
     }
 
-    public List<ColorVector2> AlignVectors = new List<ColorVector2>();
+    public List<ColorVector2> AlignVectors = new List<ColorVector2>() { new ColorVector2() };
 
     ColorSourceManager ColorSourceManager;
 
